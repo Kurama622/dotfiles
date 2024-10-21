@@ -1,0 +1,40 @@
+import = ["~/.config/alacritty/password.toml"]
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#c5c8c6"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Comic Mono"
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+# [shell]
+# hide_when_typing = true
+# program = "/bin/zsh"
+
+[window]
+decorations_theme_variant = "Dark"
+opacity = 0.97
+
+[keyboard]
+bindings = [
+  { key="e",   mods= "ALT",    chars= "enable_repo_info\n" },
+  { key="e",   mods= "ALT|SHIFT",    chars= "disable_repo_info\n" },
+]

@@ -1,0 +1,12 @@
+[submodule "nvim"]
+    path = nvim
+    url = https://github.com/kurama622/.lazyvim.git
+
+
+[submodule "tmux/plugins/tpm"]
+    path = tmux/plugins/tpm
+    url = https://github.com/tmux-plugins/tpm.git
+
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

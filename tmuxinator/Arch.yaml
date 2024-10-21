@@ -1,0 +1,34 @@
+# ~/.config/tmuxinator/Arch.yml
+
+name: Redmi
+root: ~/
+
+windows:
+  - proxy:
+      root: ~/Github/clash-for-linux-backup
+
+  - Github:
+      root: ~/Github
+
+  - plugins:
+      root: ~/.local/share/nvim/lazy
+
+
+  # - Draft:
+  #     root: ~/Github/Draft
+  #     # main-horizontal
+  #     layout: main-vertical
+  #     # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+  #     # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+  #     # synchronize: after
+  #     # panes:
+  #     #   - tmux source-file ~/.config/tmux/tmux.conf
+  #     #   - ranger
+  # - CUDA:
+  #     layout: even-horizontal
+  #     root: ~/Github/course/08/
+  #     panes:
+  #       - NULL
+  #       - cd ~/Github/course/07/
+  # - HIP: 
+  #    root: ~/Desktop/hip-code

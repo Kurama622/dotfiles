@@ -1,0 +1,76 @@
+add_newline = false
+
+# A minimal left prompt
+format = """
+$conda\
+$directory\
+$git_branch\
+${custom.git_separator}\
+$git_status\
+$character\
+"""
+
+# move the rest of the prompt to the right
+right_format = """$status$cmd_duration${custom.git_repo_info}"""
+
+[character]
+success_symbol = " [❯](green)"
+error_symbol = " [❯](red)"
+vicmd_symbol = " [❮](blue)"
+
+[git_branch]
+format = ' [\(](#a3aef2)[$branch]($style)'
+style = 'bold italic cyan'
+
+# By default conda shows the activated environment in prompt. You could disable it by:
+# conda config --set changeps1 False.
+# https://github.com/spaceship-prompt/spaceship-prompt/issues/218
+[conda]
+style = "blue"
+format = '[$environment ]($style)'
+ignore_base = false
+
+[git_status]
+format = '$modified$ahead_behind$staged$stashed$untracked$conflicted[\)](#a3aef2)'
+untracked = '[≡](yellow)'
+modified = '[*](bold blue)'
+conflicted = '[⇕](red)'
+staged = '[+](bold green)'
+stashed = '[?${count}](blue)'
+ahead = '[⇡${count}](green)'
+behind = '[⇣${count}](green)'
+diverged = '[⇕⇡${ahead_count}⇣${behind_count}](#da8cff)'
+
+[custom.git_separator]
+format = ' '
+when = """[[ -n $(git status --porcelain) ]]"""
+
+[directory]
+format = '[$path]($style)'
+style = "bold #cfafdf"
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+disabled = true
+format = '[$duration]($style) '
+
+[line_break]
+disabled = true
+
+[status]
+disabled = false
+symbol = '✘ '
+
+# your github repo
+[custom.git_repo_info]
+format = '[$output](#a3aef2)'
+command = """
+  repo_info=$(curl -s https://api.github.com/repos/kurama622/llm.nvim -H "Authorization: Bearer $GITHUB_TOKEN")
+  echo "\uf005 " && echo $repo_info | jq '.stargazers_count'
+  echo " " && echo "\uf126 " && echo $repo_info | jq '.forks'
+"""
+when = '[[ -n $INFO && -n $GITHUB_TOKEN ]]'
+ignore_timeout = true
+disabled = false
