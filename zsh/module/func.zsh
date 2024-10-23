@@ -16,7 +16,7 @@ enable_kimi() {
 }
 
 enable_gpt() {
-  LLM_KEY=$GITHUB_TOKEN
+  export LLM_KEY=$GITHUB_TOKEN
 }
 
 enable_siliconflow() {
