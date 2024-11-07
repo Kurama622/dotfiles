@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/password.toml"]
+general.import = ["~/.config/alacritty/password.toml"]
 
 [colors.primary]
 background = "#1c1c1c"
