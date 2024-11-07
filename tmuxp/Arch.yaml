@@ -1,0 +1,9 @@
+session_name: Redmi
+start_directory: ~/
+windows:
+- start_directory: ~/Github/clash-for-linux-backup
+  window_name: proxy
+- start_directory: ~/Github
+  window_name: Github
+- start_directory: ~/.local/share/nvim/lazy
+  window_name: plugins
