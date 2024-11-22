@@ -7,3 +7,5 @@ windows:
   window_name: Github
 - start_directory: ~/.local/share/nvim/lazy
   window_name: plugins
+- start_directory: ~/.config/nvim
+  window_name: Neovim-config
