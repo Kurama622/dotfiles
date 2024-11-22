@@ -25,6 +25,9 @@ enable_siliconflow() {
 enable_openai() {
   export LLM_KEY=$OPENAI_KEY
 }
+enable_local() {
+  export LLM_KEY=$LOCAL_LLM_KEY
+}
 
 fetch_github_repo_info() {
   repo_info=$(curl -s https://api.github.com/repos/kurama622/llm.nvim -H "Authorization: Bearer $GITHUB_TOKEN")
