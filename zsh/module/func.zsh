@@ -28,6 +28,12 @@ enable_openai() {
 enable_local() {
   export LLM_KEY=$LOCAL_LLM_KEY
 }
+enable_deepseek(){
+  export LLM_KEY=$DEEPSEEK_TOKEN
+}
+enable_openrouter(){
+  export LLM_KEY=$OPENROUTER_KEY
+}
 
 fetch_github_repo_info() {
   repo_info=$(curl -s https://api.github.com/repos/kurama622/llm.nvim -H "Authorization: Bearer $GITHUB_TOKEN")
