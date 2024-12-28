@@ -67,7 +67,7 @@ symbol = '✘ '
 [custom.git_repo_info]
 format = '[$output](#a3aef2)'
 command = """
-  repo_info=$(curl -s https://api.github.com/repos/kurama622/llm.nvim -H "Authorization: Bearer $GITHUB_TOKEN")
+  repo_info=$(curl -s https://api.github.com/repos/$(git remote get-url origin | awk -F'/|.git$' '{print $4 "/" $5}') -H "Authorization: Bearer $GITHUB_TOKEN")
   echo "\uf005 " && echo $repo_info | jq '.stargazers_count'
   echo " " && echo "\uf126 " && echo $repo_info | jq '.forks'
 """
