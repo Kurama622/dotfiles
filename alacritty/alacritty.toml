@@ -8,7 +8,7 @@ foreground = "#c5c8c6"
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.bold]
 family = "FiraCode Nerd Font"
