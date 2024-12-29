@@ -15,3 +15,10 @@ mkdir ~/Github
 git clone https://github.com/Kurama622/dotfiles.git --recursive ~/Github/dotfiles
 pushd ~/Github/dotfiles; bash init.sh; popd
 ```
+## proxy
+
+```bash
+sudo pacman -S v2raya
+```
+### subscribe
+- https://ghp.ci/raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodev2ray.txt
