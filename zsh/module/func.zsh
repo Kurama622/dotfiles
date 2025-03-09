@@ -1,7 +1,8 @@
 source ~/.config/zsh/.env
 
 export ACCOUNT=$WORKERS_AI_ACCOUNT
-export LLM_KEY=$SILICONFLOW_TOKEN
+# export LLM_KEY=$SILICONFLOW_TOKEN
+export LLM_KEY=$GLM_KEY
 
 enable_workers_ai() {
   export LLM_KEY=$WORKERS_AI_KEY

@@ -22,3 +22,7 @@ sudo pacman -S v2raya
 ```
 ### subscribe
 - https://ghp.ci/raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodev2ray.txt
+
+### port
+- http: 7890
+- socks5: 7891
