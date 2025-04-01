@@ -1,0 +1,39 @@
+[user]
+    email = kurama174@163.com
+    name = Kurama622
+
+;=========== DELTA ===========
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+    side-by-side = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[alias]
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    d = difftool
+
+;=========== DIFF TOOL ===========
+[diff]
+    tool = nvimdiff
+[difftool]
+    prompt = true
+[difftool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+
+;=========== PROXY ===========
+[http]
+    proxy = http://127.0.0.1:7890
+    postBuffer = 524288000
+[https]
+    proxy = https://127.0.0.1:7890
+[url "ssh://git@ssh.github.com:443/"]
+    insteadOf = git@github.com:
