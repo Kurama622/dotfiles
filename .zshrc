@@ -34,6 +34,8 @@ export GLFW_IM_MODULE=ibus
 export HIP_PATH="/opt/rocm/hip"
 export PATH="$PATH:/opt/rocm/bin:$HIP_PATH/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export XDG_CONFIG_HOME="$HOME/.config"
+export DEBUG_CODEIUM="info" # just for codeium.nvim
 
 
 zinit snippet OMZ::lib/key-bindings.zsh
