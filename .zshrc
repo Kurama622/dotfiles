@@ -74,3 +74,16 @@ zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
+
+eval "$(dircolors -b)"
+LS_COLORS="$LS_COLORS:di=38;5;110:\
+ln=38;5;245:\
+ex=38;5;71:\
+fi=38;5;250:\
+pi=38;5;179:\
+so=38;5;103:\
+bd=38;5;173:cd=38;5;173:or=38;5;167:mi=38;5;167:\
+*.tar=38;5;173:*.gz=38;5;173:*.zip=38;5;173:\
+*.jpg=38;5;186:*.png=38;5;186:\
+*.mkv=38;5;65:*.gif=38;5;65:*.mp4=38;5;65"
+export LS_COLORS
