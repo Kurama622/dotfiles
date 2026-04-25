@@ -14,11 +14,11 @@ autoload -Uz _zinit
 zinit snippet OMZ::lib/history.zsh
 
 # 语法高亮
-zinit ice lucid wait='1' atinit='zpcompinit'
+zinit ice wait lucid atinit='zpcompinit'
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # 自动建议
-zinit ice lucid wait="1" atload='_zsh_autosuggest_start'
+zinit ice wait lucid atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # 补全
@@ -32,14 +32,18 @@ export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 export HIP_PATH="/opt/rocm/hip"
-export PATH="$PATH:/opt/rocm/bin:$HIP_PATH/bin"
+export PATH="$PATH:/opt/rocm/bin:$HIP_PATH/bin:$HOME/.local/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export XDG_CONFIG_HOME="$HOME/.config"
 export DEBUG_CODEIUM="info" # just for codeium.nvim
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/arch/.lmstudio/bin"
+# End of LM Studio CLI section
 
 
 zinit snippet OMZ::lib/key-bindings.zsh
 
+setopt autocd		# Automatically cd into typed directory.
 # bash ~/scripts/setxkbmap-qwery.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
