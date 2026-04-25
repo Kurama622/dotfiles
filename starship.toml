@@ -3,24 +3,53 @@ add_newline = false
 # A minimal left prompt
 format = """
 $conda\
+[\\[](red)\
+$username\
+[@](green)\
+$hostname\
 $directory\
 $git_branch\
 ${custom.git_separator}\
 $git_status\
+[\\]](red) \
 $character\
 """
+
+palette = 'kurama'
+
+[palettes.kurama]
+red = '#d75f5f'
+yellow = '#e0af68'
+green = '#84a800'
+blue = '#268bd2'
+white = '#A9A8A8'
+purple = '#a3aef2'
+dgreen = '#2AA198'
+pink = '#bc84a8'
 
 # move the rest of the prompt to the right
 right_format = """$status$cmd_duration${custom.git_repo_info}"""
 
+[username]
+style_user = 'yellow'
+style_root = 'red bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$hostname](blue) '
+disabled = false
+
 [character]
-success_symbol = " [❯](green)"
-error_symbol = " [❯](red)"
-vicmd_symbol = " [❮](blue)"
+success_symbol = "[\\$](white)"
+error_symbol = "[\\$](red)"
+vicmd_symbol = "[\\$](blue)"
 
 [git_branch]
-format = ' [\(](#a3aef2)[$branch]($style)'
-style = 'bold italic cyan'
+format = ' [\(](purple)[$branch]($style)'
+style = 'bold italic dgreen'
 
 # By default conda shows the activated environment in prompt. You could disable it by:
 # conda config --set changeps1 False.
@@ -31,7 +60,7 @@ format = '[$environment ]($style)'
 ignore_base = false
 
 [git_status]
-format = '$modified$ahead_behind$staged$stashed$untracked$conflicted[\)](#a3aef2)'
+format = '$modified$ahead_behind$staged$stashed$untracked$conflicted[\)](purple)'
 untracked = '[≡](yellow)'
 modified = '[*](bold blue)'
 conflicted = '[⇕](red)'
@@ -39,7 +68,7 @@ staged = '[+](bold green)'
 stashed = '[?${count}](blue)'
 ahead = '[⇡${count}](green)'
 behind = '[⇣${count}](green)'
-diverged = '[⇕⇡${ahead_count}⇣${behind_count}](#da8cff)'
+diverged = '[⇕⇡${ahead_count}⇣${behind_count}](red)'
 
 [custom.git_separator]
 format = ' '
@@ -47,7 +76,7 @@ when = """[[ -n $(git status --porcelain) ]]"""
 
 [directory]
 format = '[$path]($style)'
-style = "bold #cfafdf"
+style = "bold pink"
 truncation_length = 1
 truncation_symbol = ""
 fish_style_pwd_dir_length = 1
@@ -65,7 +94,7 @@ symbol = '✘ '
 
 # your github repo
 [custom.git_repo_info]
-format = '[$output](#a3aef2)'
+format = '[$output](purple)'
 command = """
   repo_info=$(curl -s https://api.github.com/repos/$(git remote get-url origin | awk -F'/|.git$' '{print $4 "/" $5}') -H "Authorization: Bearer $GITHUB_TOKEN")
   echo "\uf005 " && echo $repo_info | jq '.stargazers_count'
