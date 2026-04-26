@@ -64,6 +64,27 @@ git config --global difftool.prompt true
 git config --global difftool.nvimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\""
 git config --global alias.d difftool
 
+# set git color
+git config --global color.branch.current "71 bold"
+git config --global color.branch.local "250"
+git config --global color.branch.remote "109"
+
+git config --global color.status.added "71"
+git config --global color.status.changed "179"
+git config --global color.status.untracked "103"
+
+git config --global color.diff.meta "245"
+git config --global color.diff.frag "179"
+git config --global color.diff.old "167"
+git config --global color.diff.new "71"
+git config --global color.diff.commit "103"
+git config --global color.diff.whitespace "167 reverse"
+
+git config --global color.decorate.branch "71"
+git config --global color.decorate.remoteBranch "109"
+git config --global color.decorate.tag "179"
+git config --global color.decorate.stash "103"
+
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
