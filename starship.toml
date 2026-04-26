@@ -11,7 +11,7 @@ $directory\
 $git_branch\
 ${custom.git_separator}\
 $git_status\
-[\\]](red) \
+[\\]](red)\
 $character\
 """
 
