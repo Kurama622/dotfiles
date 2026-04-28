@@ -1,3 +1,11 @@
+autoload -Uz add-zsh-hook
+
+_refresh_prompt_after_tmux() {
+  print -Pn '\r'
+}
+
+add-zsh-hook precmd _refresh_prompt_after_tmux
+
 ### Added by Zinit's installer
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -59,31 +67,33 @@ fi
 
 source ~/.config/zsh/module/proxy.zsh
 
-git config --global diff.tool nvimdiff
-git config --global difftool.prompt true
-git config --global difftool.nvimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\""
-git config --global alias.d difftool
+if ! git config --global --get diff.tool >/dev/null; then
+  git config --global diff.tool nvimdiff
+  git config --global difftool.prompt true
+  git config --global difftool.nvimdiff.cmd "nvim -d \"\$LOCAL\" \"\$REMOTE\""
+  git config --global alias.d difftool
 
-# set git color
-git config --global color.branch.current "71 bold"
-git config --global color.branch.local "250"
-git config --global color.branch.remote "109"
+  # set git color
+  git config --global color.branch.current "71 bold"
+  git config --global color.branch.local "250"
+  git config --global color.branch.remote "109"
 
-git config --global color.status.added "71"
-git config --global color.status.changed "179"
-git config --global color.status.untracked "103"
+  git config --global color.status.added "71"
+  git config --global color.status.changed "179"
+  git config --global color.status.untracked "103"
 
-git config --global color.diff.meta "245"
-git config --global color.diff.frag "179"
-git config --global color.diff.old "167"
-git config --global color.diff.new "71"
-git config --global color.diff.commit "103"
-git config --global color.diff.whitespace "167 reverse"
+  git config --global color.diff.meta "245"
+  git config --global color.diff.frag "179"
+  git config --global color.diff.old "167"
+  git config --global color.diff.new "71"
+  git config --global color.diff.commit "103"
+  git config --global color.diff.whitespace "167 reverse"
 
-git config --global color.decorate.branch "71"
-git config --global color.decorate.remoteBranch "109"
-git config --global color.decorate.tag "179"
-git config --global color.decorate.stash "103"
+  git config --global color.decorate.branch "71"
+  git config --global color.decorate.remoteBranch "109"
+  git config --global color.decorate.tag "179"
+  git config --global color.decorate.stash "103"
+fi
 
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
