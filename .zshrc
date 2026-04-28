@@ -1,11 +1,3 @@
-autoload -Uz add-zsh-hook
-
-_refresh_prompt_after_tmux() {
-  print -Pn '\r'
-}
-
-add-zsh-hook precmd _refresh_prompt_after_tmux
-
 ### Added by Zinit's installer
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
