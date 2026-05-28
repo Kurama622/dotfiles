@@ -1,0 +1,151 @@
+
+configuration {
+    modi:                       "window,drun,run";
+    show-icons:                 true;
+    display-drun:               " ";
+    display-run:                " ";
+    display-window:             " ";
+    drun-display-format:        "{name}";
+    window-format:              "{w}{c}  {t}";
+    font:                       "FiraCode Nerd Font Bold 11";
+
+}
+
+/* --- 全局变量与配色 --- */
+* {
+    /* 背景色: 深蓝灰 + 90% 透明度 (E6) */
+    background:                 #1E2127E6;
+    /* 字体颜色 */
+    foreground:                 #D8DEE9;
+    /* 选中高亮色: 冰蓝色 */
+    selected:                   #89DCEB;
+    selected-text:              #1E2127;
+    /* 边框颜色 */
+    border-col:                 #89DCEB;
+    /* 左侧面板的渐变背景 */
+    sidebar-gradient:           linear-gradient(to bottom, #2E3440, #1E2127);
+    /* 关键：强制全局背景透明，防止白色色块出现 */
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+/* --- 主窗口容器 --- */
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      1200px;
+    height:                     1000px;
+    enabled:                    true;
+    border:                     3px;
+    border-color:               @border-col;
+    border-radius:              16px;
+    background-color:           @background;
+    cursor:                     "default";
+}
+
+mainbox {
+    enabled:                    true;
+    orientation:                vertical;
+    children:                   [ "inputbar", "listview", "mode-switcher" ];
+    background-color:           transparent;
+    padding:                    30px;
+    spacing:                    15px;
+}
+
+inputbar {
+    enabled:                    true;
+    padding:                    15px;
+    border-radius:              10px;
+    background-color:           #3B4252;
+    text-color:                 @foreground;
+    cursor:                     text;
+}
+
+/* --- 列表区域 --- */
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      9;
+    padding:                    30px 30px 0px 30px;
+    spacing:                    10px;
+    background-color:           transparent;
+}
+
+/* 列表项基础样式 */
+element {
+    enabled:                    true;
+    spacing:                    15px;
+    padding:                    12px 15px;
+    border-radius:              10px;
+    cursor:                     pointer;
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+/* 底部模式切换按钮 */
+mode-switcher {
+    enabled:                    true;
+    spacing:                    12px;
+    background-color:           transparent;
+}
+
+button {
+    padding:                    10px;
+    border-radius:              12px;
+    background-color:           #3B4252;
+    text-color:                 inherit;
+    cursor:                     pointer;
+}
+
+button selected {
+    background-color:           @selected;
+    text-color:                 @selected-text;
+}
+
+/* === 状态样式定义 (彻底修复白色色块) === */
+
+/* 普通状态 */
+element normal.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+/* 交替行状态 */
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+/* 已打开窗口状态 */
+element normal.active {
+    background-color:           transparent;
+    text-color:                 @selected;
+}
+element alternate.active {
+    background-color:           transparent;
+    text-color:                 @selected;
+}
+
+/* 选中状态 (高亮) */
+element selected.normal {
+    background-color:           @selected;
+    text-color:                 @selected-text;
+}
+element selected.active {
+    background-color:           @selected;
+    text-color:                 @selected-text;
+}
+
+/* 图标与文字 */
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       32px;
+    cursor:                     inherit;
+}
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+}
