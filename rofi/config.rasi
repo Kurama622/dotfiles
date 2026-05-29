@@ -11,25 +11,25 @@ configuration {
 
 }
 
-/* --- 全局变量与配色 --- */
+// --- 全局变量与配色 ---
 * {
-    /* 背景色: 深蓝灰 + 90% 透明度 (E6) */
-    background:                 #1E2127E6;
-    /* 字体颜色 */
+    // 背景色: 深蓝灰
+    background:                 #1E2127;
+    // 字体颜色
     foreground:                 #D8DEE9;
-    /* 选中高亮色: 冰蓝色 */
-    selected:                   #89DCEB;
+    // 选中高亮色: 冰蓝色
+    selected:                   #2AA198;
     selected-text:              #1E2127;
-    /* 边框颜色 */
-    border-col:                 #89DCEB;
-    /* 左侧面板的渐变背景 */
-    sidebar-gradient:           linear-gradient(to bottom, #2E3440, #1E2127);
-    /* 关键：强制全局背景透明，防止白色色块出现 */
+    // 边框颜色
+    border-col:                 #2AA198;
     background-color:           transparent;
     text-color:                 @foreground;
+    separatorcolor:             @background;
+    prompt:                     #BB9AF7;
+    gray:                       #6E7171;
 }
 
-/* --- 主窗口容器 --- */
+// --- 主窗口容器 ---
 window {
     transparency:               "real";
     location:                   center;
@@ -54,8 +54,26 @@ mainbox {
     spacing:                    15px;
 }
 
+prompt {
+  color: @prompt;
+}
+
+textbox-prompt-space {
+    expand:     false;
+    str:        "";
+    margin:     0px 0.3em 0em 0em ;
+}
+
+textbox-prompt-slash {
+    expand:     false;
+    str:        "/";
+    text-color: grey;
+    margin:     0px 0em 0em 0em ;
+}
+
 inputbar {
     enabled:                    true;
+    children:                   [prompt,textbox-prompt-space,entry,overlay,num-filtered-rows,textbox-prompt-slash,num-rows];
     padding:                    15px;
     border-radius:              10px;
     background-color:           #3B4252;
@@ -63,7 +81,7 @@ inputbar {
     cursor:                     text;
 }
 
-/* --- 列表区域 --- */
+// --- 列表区域 ---
 listview {
     enabled:                    true;
     columns:                    1;
@@ -73,7 +91,7 @@ listview {
     background-color:           transparent;
 }
 
-/* 列表项基础样式 */
+// 列表项基础样式
 element {
     enabled:                    true;
     spacing:                    15px;
@@ -84,7 +102,7 @@ element {
     text-color:                 @foreground;
 }
 
-/* 底部模式切换按钮 */
+// 底部模式切换按钮
 mode-switcher {
     enabled:                    true;
     spacing:                    12px;
@@ -104,19 +122,19 @@ button selected {
     text-color:                 @selected-text;
 }
 
-/* === 状态样式定义 (彻底修复白色色块) === */
+// 状态样式定义
 
-/* 普通状态 */
+// 普通状态
 element normal.normal {
     background-color:           transparent;
     text-color:                 @foreground;
 }
-/* 交替行状态 */
+// 交替行状态
 element alternate.normal {
     background-color:           transparent;
     text-color:                 @foreground;
 }
-/* 已打开窗口状态 */
+// 已打开窗口状态
 element normal.active {
     background-color:           transparent;
     text-color:                 @selected;
@@ -126,7 +144,7 @@ element alternate.active {
     text-color:                 @selected;
 }
 
-/* 选中状态 (高亮) */
+// 选中状态 (高亮)
 element selected.normal {
     background-color:           @selected;
     text-color:                 @selected-text;
@@ -136,7 +154,7 @@ element selected.active {
     text-color:                 @selected-text;
 }
 
-/* 图标与文字 */
+// 图标与文字
 element-icon {
     background-color:           transparent;
     text-color:                 inherit;
