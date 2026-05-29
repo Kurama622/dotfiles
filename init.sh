@@ -1,6 +1,6 @@
 #!/bin/bash
 
-paths=("zsh" "starship.toml" "tmux" "tmuxinator" "alacritty" "nvim" "tmuxp" "kitty" "lazygit")
+paths=("zsh" "starship.toml" "tmux" "nvim" "tmuxp" "kitty" "lazygit" "rofi")
 for p in "${paths[@]}"; do
   ln -s "$HOME/Github/dotfiles/$p" "$HOME/.config/"
 done
