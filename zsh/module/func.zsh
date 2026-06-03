@@ -1,4 +1,6 @@
-source ~/.config/zsh/.env
+if [ -f ~/.config/zsh/.env ]; then
+  source ~/.config/zsh/.env
+fi
 
 export ACCOUNT=$WORKERS_AI_ACCOUNT
 # export LLM_KEY=$SILICONFLOW_TOKEN
